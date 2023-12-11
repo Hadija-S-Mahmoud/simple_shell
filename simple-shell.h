@@ -32,7 +32,7 @@
 #define USE_STRTOK 0
 #define HISTORY_NAME ".simple-shell_history"
 #define HISTORY_MAX 4096
-#define SETTING_INFO				       \
+#define INFO_SETTER				       \
 {							\
 NULL, NULL, NULL, 0, 0, 0, 0,		\
 NULL, NULL, NULL, NULL, NULL,		\
@@ -106,4 +106,23 @@ typedef struct built-in
 char *type;
 int (*funct)(info_s*);
 } builtin_commands;
+int main_s-shell(info_s *info, char **a);
+int char_writer(char b, int fdesc);
+int chars_writer(char *str, int fdesc);
+int str_lent(char *c);
+int str_cmp(char *d1, char *d2);
+int putchar_error(char);
+int _putchar(char);
+int _isalphanum(int);
+int _atoi(char *);
+int error_number(char *);
+int exit_handlr(info_s *);
+int cd_handlr(info_s *);
+int help_handlr(info_s *);
+int history_handlr(info_s *);
+int alias_handlr(info_s *);
+int get_line(info_s *, char **, size_t *);
+int print_environment(info_s *);
+int set-envt_checker(info_s *);
+int unset-envt_checker(info_s *);
 #endif 
