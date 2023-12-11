@@ -105,7 +105,7 @@ typedef struct built-in
 {
 char *type;
 int (*funct)(info_s*);
-} builtin_commands;
+} builtin_cmds;
 
 int main_s-shell(info_s *info, char **a);
 int char_writer(char b, int fdesc);

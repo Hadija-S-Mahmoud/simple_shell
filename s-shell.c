@@ -26,7 +26,7 @@ puts_error(argv[0]);
 puts_error(": 0: Unable to open");
 puts_error(argv[1]);
 putchar_error('\n');
-putchar_error(NEGATIVE_ONE);
+putchar_error(B_FLUSH);
 exit(127);
 }
 return (EXITING_FAILED);
