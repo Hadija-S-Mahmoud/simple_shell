@@ -1,4 +1,4 @@
-#include "simple-shell.h"
+#include "simpleshell.h"
 
 /**
  * exit_handlr - function that exits the shell
@@ -43,24 +43,24 @@ int cd_handlr(info_s *info)
 		puts("TODO: >>getcd failure message here<<\n");
 	if (!info->argv[1])
 	{
-		dirct = _get-envt(info, "HOME=");
+		dirct = _getenvt(info, "HOME=");
 		if (!dirct)
 			chdir_r = /* TODO: what shld this be? */
-				chdir((dirct = _get-envt(info, "PWD=")) ? dirct : "/");
+			chdir((dirct = _getenvt(info, "PWD=")) ? dirct : "/");
 		else
 			chdir_r = chdir(dirct);
 	}
 	else if (str_cmp(info->argv[1], "-") == 0)
 	{
-		if (!_get-envt(info, "OLDPWD="))
+		if (!_getenvt(info, "OLDPWD="))
 		{
 			puts(i);
 			_putchar('\n');
 			return (1);
 		}
-		puts(_get-envt(info, "OLDPWD=")), _putchar('\n');
+		puts(_getenvt(info, "OLDPWD=")), _putchar('\n');
 		chdir_r = /* TODO: what should this be? */
-			chdir((dirct = _get-envt(info, "OLDPWD=")) ? dirct : "/");
+			chdir((dirct = _getenvt(info, "OLDPWD=")) ? dirct : "/");
 	}
 	else
 		chdir_r = chdir(info->argv[1]);
@@ -72,8 +72,8 @@ int cd_handlr(info_s *info)
 	}
 	else
 	{
-		_set-envt(info, "OLDPWD", _get-envt(info, "PWD="));
-		_set-envt(info, "PWD", getcd(buffer, 1024));
+		_setenvt(info, "OLDPWD", _getenvt(info, "PWD="));
+		_setenvt(info, "PWD", getcd(buffer, 1024));
 	}
 	return (0);
 }

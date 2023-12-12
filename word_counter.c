@@ -30,7 +30,7 @@ return (1);
 for (a = 1; st_cpy[a]; a++)
 {
 isdelimiter = delimiter(st_cpy[a], sep);
-if (isdelimiter && !(delimiter(st_cpy[a-1], sep)))
+if (isdelimiter && !(delimiter(st_cpy[a - 1], sep)))
 {
 array[wrd_cnt] = wrd_lengt;
 wrd_cnt++;

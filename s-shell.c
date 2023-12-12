@@ -1,4 +1,4 @@
-#include "simple-shell.h"
+#include "simpleshell.h"
 /**
 * main - function that serves as an entry to the shell program
 * @argv: argument vector
@@ -35,6 +35,6 @@ info->desc = fundesc;
 }
 gather_environment(info);
 hist_reader(info);
-main_s-shell(info, argv);
+main_sshell(info, argv);
 return (EXITING_SUCCESSFUL);
 }
