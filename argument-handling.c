@@ -1,7 +1,7 @@
 #include "simple-shell.h"
 
 /**
- * executable - function that determines if a file is executable 
+ * executable - function that determines if a file is executable
  * @info: struct
  * @paths: the path to the file
  * Return: 1 if it’s true, 0 if failure

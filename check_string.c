@@ -7,17 +7,17 @@
  * @h: address of the current position in the buffer
  * Return: 1 if it’s a chain delimiter else 0 if it’s not
  */
-bool chain (info_s *info, char *buffer, size_t *h)
+bool chain(info_s *info, char *buffer, size_t *h)
 {
 	size_t a = *h;
 
-	if (buffer[a] == '|' &&buffer[a + 1] == '|')
+	if (buffer[a] == '|' && buffer[a + 1] == '|')
 	{
 		buffer[a] = 0;
 		a++;
 		info->s_buffer_type = O_FLAG;
 	}
-	else if (buffer[a] == '&' &&buffer[a + 1] == '&')
+	else if (buffer[a] == '&' && buffer[a + 1] == '&')
 	{
 		buffer[a] = 0;
 		a++;
@@ -87,7 +87,7 @@ int v_changer(info_s *info)
 			   str_dup(base_changer(info->status, 10, 0)));
 
 			continue;
-		}		
+		}
 		if (!str_cmp(info->argv[i], "$$"))
 		{
 			string_changer(&(info->argv[b]),
@@ -115,10 +115,10 @@ int v_changer(info_s *info)
  * @new-str: the address of the new string
  * Return: 1 if it’s replaced, 0 if it’s not
  */
-int string_changer(char **old-str, char *new-str)
+int string_changer(char **old - str, char *new - str)
 {
-	free(*old-str);
-	*old-str = new-str;
+	free(*old - str);
+	*old - str = new - str;
 
 	return (1);
 }

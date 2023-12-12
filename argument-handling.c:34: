@@ -1,0 +1,2 @@
+rgument-handling.c:52: ERROR: global variables are not allowed
+argument-handling.c:53: ERROR: global variables are not allowed
