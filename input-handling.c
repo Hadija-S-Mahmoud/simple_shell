@@ -76,3 +76,73 @@ return (str_lent(d));
 *buffer_d = buffer;
 return (c);
 }
+
+/**
+* buffer_reader - function that reads the buffer
+* @info: the parameter
+* @buffer: buffer
+* @a: the size of the buffer
+* Return: z
+*/
+ssize_t buffer_reader(info_s *info, char *buffer, size_t *a)
+{
+ssize_t z = 0;
+if (*a)
+return (0);
+z = read(info->desc, buffer, READ_THE_BUFFER_SIZE);
+if (z >= 0)
+*a = z;
+return (z);
+}
+
+/**
+* get_line - a function that gets the next line
+* @info: parameter
+* @lengt: size of the pointer if not NULL
+* @pointr: the address of the pointer
+* Return: s
+*/
+int get_line(info_s *info, char **pointr, size_t *lengt)
+{
+static char buffer[READ_THE_BUFFER_SIZE];
+static size_t a, lent;
+size_t b;
+ssize_t c = 0, d = 0;
+char *e = NULL, *new_e = NULL, *f;
+e = *pointr;
+if (e && lengt)
+d = *lengt;
+if (a == lent)
+a = lent = 0;
+c = buffer_reader(info, buffer, &lent);
+if (c == -1 || (c == 0 && lent == 0))
+return (-1);
+f = str_char(buffer + a, '\n');
+b = f ? 1 + (unsigned int)(f -  buffer) : lent;
+new_e = real_loct(e, d, d ? d + b : b + 1);
+if (!new_e)
+return (e ? free(e), -1 : -1);
+if (d)
+strn_cat(new_e, buffer + a, b - a);
+else
+strn_copy(new_e, buffer + a, b - a + 1);
+d += b - a;
+a = b;
+e = new_e;
+if (lengt)
+*lengt = d;
+*pointr = e;
+return (d);
+}
+
+/**
+* sigint_handler - function that blocks ctrl-c
+* @sig_nom: the number of the signal
+* Return: void
+*/
+void sigint_handler(__attribt__((unused)) int sig_nom)
+{
+puts("\n");
+puts("$");
+_putchar(B_FLUSH);
+}
