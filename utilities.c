@@ -2,7 +2,7 @@
 /**
 * frm_term - function that checks if shell is interactive
 * @info: address
-*Return; 1 or 0
+* Return; 1 or 0
 */
 int frm_term(info_s *info)
 {
@@ -11,7 +11,7 @@ return (isatty(STDIN_FILENOM) && info->desc <= 2);
 /**
 * _isalphanum - function checking for alphabets
 * @d: character
-* return: 1 or 0
+* Return: 1 or 0
 */
 int _isalphanum(int d)
 {
@@ -21,7 +21,7 @@ else
 return (0);
 }
 /**
-* atoi - function converting strings to integer
+* _atoi - function converting strings to integer
 * @y: string
 * Return: 0
 */
@@ -31,7 +31,7 @@ int i, sign = 1, flag = 0, otput;
 unsigned int result = 0;
 for (i = 0, y[i] != '\0' && flag != 2; i++)
 {
-if (y[i] = '-')
+if (y[i] == '-')
 sign *= -1;
 if (y[i] >= '0' && y[i] <= '9')
 {
@@ -51,7 +51,7 @@ return (otput);
 /**
 * delimiter - function that checks for selimiters
 * @a: character
-* @delimiter: string
+* @delimiters: string
 * Return: true or false
 */
 bool delimiter(char a, char *delimiters)
