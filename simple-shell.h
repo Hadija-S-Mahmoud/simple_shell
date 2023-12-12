@@ -108,8 +108,8 @@ int (*funct)(info_s*);
 } builtin_cmds;
 
 int main_s-shell(info_s *info, char **a);
-int char_writer(char b, int fdesc);
-int chars_writer(char *str, int fdesc);
+int char_writer(char z, int fdesc);
+int chars_writer(char *strng, int fdesc);
 int str_lent(char *c);
 int str_cmp(char *d1, char *d2);
 int putchar_error(char);
