@@ -10,7 +10,7 @@ int wrd_cnt(char *strng, char *sep, unsigned int *array)
 {
 unsigned int a, i, wrd_lengt = 1;
 unsigned int wrd_cnt = 0;
-char *st_cpy = string;
+char *st_cpy = strng;
 bool start = false, isdelimiter;
 if (!strng)
 return (0);
