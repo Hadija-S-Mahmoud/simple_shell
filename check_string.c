@@ -1,4 +1,5 @@
 #include "simple-shell.h"
+
 /**
  * chain - checks whether the current char in the buffer is a chain delimiter
  * @info: parameter
@@ -121,4 +122,5 @@ int string_changer(char **old-str, char *new-str)
 
 	return (1);
 }
+
 

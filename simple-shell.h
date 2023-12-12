@@ -32,7 +32,7 @@
 #define USE_STRTOK 0
 #define HISTORY_NAME ".simple-shell_history"
 #define HISTORY_MAX 4096
-#define SETTING_INFO				       \
+#define INFO_SETTER				       \
 {							\
 NULL, NULL, NULL, 0, 0, 0, 0,		\
 NULL, NULL, NULL, NULL, NULL,		\
@@ -105,5 +105,86 @@ typedef struct built-in
 {
 char *type;
 int (*funct)(info_s*);
-} builtin_commands;
+} builtin_cmds;
+
+int main_s-shell(info_s *info, char **a);
+int char_writer(char b, int fdesc);
+int chars_writer(char *str, int fdesc);
+int str_lent(char *c);
+int str_cmp(char *d1, char *d2);
+int putchar_error(char);
+int _putchar(char);
+int _isalphanum(int);
+int _atoi(char *);
+int error_number(char *);
+int exit_handlr(info_s *);
+int cd_handlr(info_s *);
+int help_handlr(info_s *);
+int history_handlr(info_s *);
+int alias_handlr(info_s *);
+int get_line(info_s *, char **, size_t *);
+int print_environment(info_s *);
+int set-envt_checker(info_s *);
+int unset-envt_checker(info_s *);
+int _unset-envt((info_s *, char *);
+int _set-envt(info_s *, char *);
+int builtin_handler(info_s *);
+int hsh_loop(char **);
+int freeb(void **);
+int frm_term(info_s *);
+int dec_printer(int, int);
+int gather_environment(info_s *);
+int hist_creator(info_s *info);
+int hist_reader(info_s *info);
+int hist_updater(info_s *info, char *buffer,int lncnt);
+int hist_renum(info_s *info);
+int deleting_node(list_s **, unsigned int);
+int alias_changer(info_s *);
+int v_changer(info_s *);
+int string_changer(char**, char *);
+int wrd_cnt(char *str, char *sep, unsigned int *array);
+ssize_t node_index_getter(list_s *, list_s *);
+ssize_t input_getter(info_s *);
+size_t list_printer(constlist_s *);
+size_t list_lent(const list_s *);
+size_t str_list_printer(const list_s *);
+bool chain(info_s *info, char *buffer, size_t *h);
+bool delimiter(char a, char *delimiters);
+bool executable(info_s *, char *);
+list_s *add_start_node(list_s **headr, const char *str, int nom);
+list_s *add_end_node(list_s **headr, const char *str, int nom);
+list_s *str_node_starter(list_s *, char *, char);
+char *str_cat(char *, char *);
+char *str_copy(char *, char *);
+char *str_dup(const char *);
+char *strn_copy(char *, char *, int);
+char *strn_cat(char *, char *, int);
+char *str_char(char *, char);
+char *memory_set(char *, char, unsigned int);
+char *_get-envt(info_s *, const char *);
+char *starter(const char *, const char *);
+char *chars_dups(char *, int, int);
+char *file_checker(info_s *info, char *pstr, char *cmnd);
+char *base_changer(long int, int, int);
+char *history_reading(info_s *info);
+char **get_environment(info_s *);
+char **str_towr(char *, char *);
+char **vector_list(list_s *);
+char **string_splitter(char *str, char *sep, size_t *wrd_cnt);
+void command_checker(info_s *);
+void *real_loct(void *p, unsigned int sz_old, unsigned int sz_new);
+void process_creator(info_s *);
+void sigint_handler(int);
+void info_clearer(info_s *);
+void info_setter(info_s *, char **);
+void fr_information(info_s *, int);
+void fr_vector(char **);
+void err_printer(info_s *, char *);
+void comment_handler(char *);
+void fr_list(list_s **);
+void chain_checker(info_s *info, char *buffer, size_t *h, size_t m, size_t lent);
+void puts_error(char *);
+void puts(char *);
+void zero_setter(unsigned int *array, size_t sz);
+void null_setter(char *array, size_t sz);
 #endif 
