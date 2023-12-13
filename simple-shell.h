@@ -137,7 +137,7 @@ int dec_printer(int, int);
 int gather_environment(info_s *);
 int hist_creator(info_s *info);
 int hist_reader(info_s *info);
-int hist_updater(info_s *info, char *buffer, int lncnt);
+int hist_updater(info_s *info, char *buffr, int lncnt);
 int hist_renum(info_s *info);
 int deleting_node(list_s **, unsigned int);
 int alias_changer(info_s *);
@@ -149,7 +149,7 @@ ssize_t input_getter(info_s *);
 size_t list_printer(constlist_s *);
 size_t list_lent(const list_s *);
 size_t str_list_printer(const list_s *);
-bool chain(info_s *info, char *buffer, size_t *h);
+bool chain(info_s *info, char *buffr, size_t *h);
 bool delimiter(char a, char *delimiters);
 bool executable(info_s *, char *);
 list_s *add_start_node(list_s **headr, const char *str, int nom);
@@ -183,7 +183,7 @@ void fr_vector(char **);
 void err_printer(info_s *, char *);
 void comment_handler(char *);
 void fr_list(list_s **);
-void chain_checker(info_s *info, char *buffer, size_t *h,
+void chain_checker(info_s *info, char *buffr, size_t *h,
 size_t m, size_t lent);
 void puts_error(char *);
 void puts(char *);
