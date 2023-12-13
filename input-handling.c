@@ -3,12 +3,13 @@
 * input_handler - a function that buffers commands
 * that are chained
 * @info: the parameter of the struct
-* @buffer: the address of the buffer
+* @buffr: the address of the buffer
 * @lent: the address of the length variable
 * Return: the bytes that have been read
 */
-ssize_t input_handler(info_s *info, char **buffer, size_t *lent)
+ssize_t input_handler(info_s *info, char **buffr, size_t *lent)
 {
+
 	ssize_t a = 0;
 	size_t lent_l = 0;
 
@@ -16,11 +17,19 @@ ssize_t input_handler(info_s *info, char **buffer, size_t *lent)
 		free(*buffer);
 		*buffer = NULL;
 		signal(SINT, sigint_handler);
+
+ssize_t a = 0;
+size_t lent_l = 0;
+{
+free(*buffr);
+*buffr = NULL;
+signal(SINT, sigint_handler);
 #if USE_GETLINE
 		a = getline(buffer, &lent_l, stdin);
 #else
 		a = get_line(info, buffer, &lent_l);
 #endif
+
 		if (a > 0)
 		{
 			if ((*buffer)[a - 1] == '\n')
@@ -38,6 +47,25 @@ ssize_t input_handler(info_s *info, char **buffer, size_t *lent)
 		}
 	}
 	return (a);
+
+if (a > 0)
+{
+if ((*buffr)[a - 1] == '\n')
+{
+(*buffr)[a - 1] = '\0';
+a--;
+}
+info->flag = 1;
+comment_handler(*buffr);
+hist_updater(info, *buffr, info->history_lines++);
+{
+*lent = a;
+info->s_buffer = buffr;
+}
+}
+}
+return (a);
+
 }
 /**
 * input_getter - function that gets a line minus
@@ -83,12 +111,13 @@ ssize_t input_getter(info_s *info)
 /**
 * buffer_reader - function that reads the buffer
 * @info: the parameter
-* @buffer: buffer
+* @buffr: buffer
 * @a: the size of the buffer
 * Return: z
 */
-ssize_t buffer_reader(info_s *info, char *buffer, size_t *a)
+ssize_t buffer_reader(info_s *info, char *buffr, size_t *a)
 {
+
 	ssize_t z = 0;
 
 	if (*a)
@@ -96,6 +125,14 @@ ssize_t buffer_reader(info_s *info, char *buffer, size_t *a)
 	z = read(info->desc, buffer, READ_THE_BUFFER_SIZE);
 	if (z >= 0)
 		*a = z;
+
+ssize_t z = 0;
+if (*a)
+return (0);
+z = read(info->desc, buffr, READ_THE_BUFFER_SIZE);
+if (z >= 0)
+*a = z;
+
 return (z);
 }
 

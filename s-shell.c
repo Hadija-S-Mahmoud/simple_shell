@@ -3,7 +3,7 @@
 * main - function that serves as an entry to the shell program
 * @argv: argument vector
 * @argc: arguments
-* Retirn: 0 if suvccessful and 1 if failure
+* Return: 0 if suvccessful and 1 if failure
 */
 int main(int argc, char **argv)
 {
@@ -35,6 +35,6 @@ info->desc = fundesc;
 }
 gather_environment(info);
 hist_reader(info);
-main_s-shell(info, argv);
+main_sshell(info, argv);
 return (EXITING_SUCCESSFUL);
 }

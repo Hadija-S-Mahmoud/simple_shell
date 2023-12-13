@@ -3,29 +3,29 @@
 /**
  * chain - checks whether the current char in the buffer is a chain delimiter
  * @info: parameter
- * @buffer: char buffer
+ * @buffr: buffer
  * @h: address of the current position in the buffer
  * Return: 1 if it’s a chain delimiter else 0 if it’s not
  */
-bool chain(info_s *info, char *buffer, size_t *h)
+bool chain(info_s *info, char *buffr, size_t *h)
 {
 	size_t a = *h;
 
-	if (buffer[a] == '|' && buffer[a + 1] == '|')
+	if (buffr[a] == '|' && buffr[a + 1] == '|')
 	{
-		buffer[a] = 0;
+		buffr[a] = 0;
 		a++;
 		info->s_buffer_type = O_FLAG;
 	}
-	else if (buffer[a] == '&' && buffer[a + 1] == '&')
+	else if (buffr[a] == '&' && buffr[a + 1] == '&')
 	{
-		buffer[a] = 0;
+		buffr[a] = 0;
 		a++;
 		info->s_buffer_type = A_FLAG;
 	}
-	else if (buffer[a] == ';')
+	else if (buffr[a] == ';')
 	{
-		buffer[a] = 0;
+		buffr[a] = 0;
 		info->s_buffer_type = C_FLAG;
 	}
 	else
@@ -37,13 +37,14 @@ bool chain(info_s *info, char *buffer, size_t *h)
 /**
  * chain_checker - function that checks chaining
  * @info: parameter
- * @buffer: char buffer
+ * @buffr: buffer
  * @h: the address of the current position in the buffer
  * @m: the starting position in the buffer
  * @lent: the length of the buffer
  * Return: Void
  */
-void chain_checker(info_s *info, char *buffer, size_t *h, size_t m, size_t lent)
+void chain_checker(info_s *info, char *buffr, size_t *h,
+size_t m, size_t lent)
 {
 	size_t a = *h;
 
@@ -51,7 +52,7 @@ void chain_checker(info_s *info, char *buffer, size_t *h, size_t m, size_t lent)
 	{
 		if (info->status)
 		{
-			buffer[m] = 0;
+			buffr[m] = 0;
 			a = lent;
 		}
 	}
@@ -59,7 +60,7 @@ void chain_checker(info_s *info, char *buffer, size_t *h, size_t m, size_t lent)
 	{
 		if (!info->status)
 		{
-			buffer[m] = 0;
+			buffr[m] = 0;
 			a = lent;
 		}
 	}
@@ -111,16 +112,14 @@ int v_changer(info_s *info)
 }
 /**
  * string_changer - a function that replaces a string
- * @old-str: the address of the old string
- * @new-str: the address of the new string
+ * @oldstr: the address of the old string
+ * @newstr: the address of the new string
  * Return: 1 if it’s replaced, 0 if it’s not
  */
-int string_changer(char **old - str, char *new - str)
+int string_changer(char **oldstr, char *newstr)
 {
-	free(*old - str);
-	*old - str = new - str;
+	free(*oldstr);
+	*oldstr = newstr;
 
 	return (1);
 }
-
-

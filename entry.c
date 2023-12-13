@@ -1,11 +1,11 @@
 #include "simple-shell.h"
 /**
-* main_s-shell - function that controls the shell program
+* main_sshell - function that controls the shell program
 * @info: the pointer to info_s
 * @arr: array with arguments for the shell program
 * Return: status of previous builyin command that's executed
 */
-int main_s-shell(info_s *info, char **arr)
+int main_sshell(info_s *info, char **arr)
 {
 ssize_t result_reader = 0;
 int b_return = 0;
@@ -55,9 +55,9 @@ builtin_cmds b_ins[] = {
 {"exit", exit_handlr},
 {"help", help_handlr},
 {"alias", alias_handlr},
-{"set-envt", set_envt_checker},
+{"setenvt", setenvt_checker},
 {"history", history_handlr},
-{"unset-envt", unset-envt_checker},
+{"unsetenvt", unsetenvt_checker},
 {NULL, NULL}};
 for (a = 0; b_ins[a].type; a++)
 if (str_cmp(info->argv[0], b_ins[a].type) == 0)
@@ -89,7 +89,7 @@ if (!delimiter(info->arg[a], "\t\n"))
 wrd_cnt++;
 if (!wrd_cnt)
 return;
-paths = file_checker(info, _get-envt(info, "PATHS="), info->argv[0]);
+paths = file_checker(info, _getenvt(info, "PATHS="), info->argv[0]);
 if (paths)
 {
 info->paths = paths;
@@ -97,7 +97,7 @@ process_creator(info);
 }
 else
 {
-if ((frm_term(info) || _get-envt(info, "PATHS=") || info->argv[0][0] == '/') &&
+if ((frm_term(info) || _getenvt(info, "PATHS=") || info->argv[0][0] == '/') &&
 executable(info, info->argv[0]))
 process_creator(info);
 else if (*(info->arg) != '\n')
