@@ -31,7 +31,7 @@ bool executable(info_s *info, char *paths)
 char *chars_dups(char *pstr, int start, int stop)
 
 	static char buffer[1024];
-	int a = 0, j = 0;
+	int a = 0; j = 0;
 
 	for (j = 0, a = strt; a < stp; a++)
 		if (pstr[a] != ':')
@@ -45,6 +45,7 @@ char *chars_dups(char *pstr, int start, int stop)
  * @info: the info struct
  * @pstr: the string of the path
  * @cmnd: the command
+ * Function prototype for chars_dups
  * Return: the full path of command or NULL
  */
 char *file_checker(info_s *info, char *pstr, char *cmnd)
@@ -54,9 +55,9 @@ char *file_checker(info_s *info, char *pstr, char *cmnd)
 
 	if (!pstr)
 		return (NULL);
-	if ((str_lent(cmnd) > 2) && starter(cmnd, "./"))
+	if ((str_lent(cmnd) > 2) && stat(cmnd, "./"))
 	{
-		if (executable(info, cmnd))
+		if (execle(info, cmnd))
 			return (cmnd);
 	}
 	while (1)
