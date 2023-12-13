@@ -1,4 +1,4 @@
-#include "simpleshell.h"
+#include "simple-shell.h"
 /**
 * main_sshell - function that controls the shell program
 * @info: the pointer to info_s

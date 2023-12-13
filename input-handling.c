@@ -1,19 +1,19 @@
 #include "simple-shell.h"
 /**
-* input_buffer - a function that buffers commands
+* input_handler - a function that buffers commands
 * that are chained
 * @info: the parameter of the struct
-* @buffer: the address of the buffer
+* @buffr: the address of the buffer
 * @lent: the address of the length variable
 * Return: the bytes that have been read
 */
-ssize_t input_handler(info_s *info, char **buffer, size_t *lent)
+ssize_t input_handler(info_s *info, char **buffr, size_t *lent)
 {
 ssize_t a = 0;
 size_t lent_l = 0;
 {
-free(*buffer);
-*buffer = NULL;
+free(*buffr);
+*buffr = NULL;
 signal(SINT, sigint_handler);
 #if USE_GETLINE
 a = getline(buffer, &lent_l, stdin);
@@ -22,17 +22,17 @@ a = get_line(info, buffer, &lent_l);
 #endif
 if (a > 0)
 {
-if ((*buffer)[a - 1] == '\n')
+if ((*buffr)[a - 1] == '\n')
 {
-(*buffer)[a - 1] = '\0';
+(*buffr)[a - 1] = '\0';
 a--;
 }
 info->flag = 1;
-comment_handler(*buffer);
-hist_updater(info, *buffer, info->history_lines++);
+comment_handler(*buffr);
+hist_updater(info, *buffr, info->history_lines++);
 {
 *lent = a;
-info->s_buffer = buffer;
+info->s_buffer = buffr;
 }
 }
 }
@@ -80,16 +80,16 @@ return (c);
 /**
 * buffer_reader - function that reads the buffer
 * @info: the parameter
-* @buffer: buffer
+* @buffr: buffer
 * @a: the size of the buffer
 * Return: z
 */
-ssize_t buffer_reader(info_s *info, char *buffer, size_t *a)
+ssize_t buffer_reader(info_s *info, char *buffr, size_t *a)
 {
 ssize_t z = 0;
 if (*a)
 return (0);
-z = read(info->desc, buffer, READ_THE_BUFFER_SIZE);
+z = read(info->desc, buffr, READ_THE_BUFFER_SIZE);
 if (z >= 0)
 *a = z;
 return (z);

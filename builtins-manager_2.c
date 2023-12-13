@@ -10,7 +10,7 @@ int exit_handlr(info_s *info)
 {
 	int ex;
 
-	if (info->argv[1]) 
+	if (info->argv[1])
 	{
 		ex = error_number(info->argv[1]);
 		if (ex == -1)
@@ -28,8 +28,8 @@ int exit_handlr(info_s *info)
 	return (-2);
 }
 /**
- * cd_handlr - function that changes the current directory 
- * @info: arguments 
+ * cd_handlr - function that changes the current directory
+ * @info: arguments
  * Return: 0
  */
 
@@ -40,13 +40,12 @@ int cd_handlr(info_s *info)
 
 	i = getcd(buffer, 1024);
 	if (!i)
-		puts("TODO: >>getcd failure message here<<\n");
+	puts("TODO: >>getcd failure message here<<\n");
 	if (!info->argv[1])
 	{
-		dirct = _getenvt(info, "HOME=");
-		if (!dirct)
-			chdir_r = /* TODO: what shld this be? */
-			chdir((dirct = _getenvt(info, "PWD=")) ? dirct : "/");
+dirct = _getenvt(info, "HOME=");
+if (!dirct)
+	chdir_r = chdir((dirct = _getenvt(info, "PWD=")) ? dirct : "/");
 		else
 			chdir_r = chdir(dirct);
 	}
@@ -58,9 +57,8 @@ int cd_handlr(info_s *info)
 			_putchar('\n');
 			return (1);
 		}
-		puts(_getenvt(info, "OLDPWD=")), _putchar('\n');
-		chdir_r = /* TODO: what should this be? */
-			chdir((dirct = _getenvt(info, "OLDPWD=")) ? dirct : "/");
+puts(_getenvt(info, "OLDPWD=")), _putchar('\n');
+chdir_r = chdir((dirct = _getenvt(info, "OLDPWD=")) ? dirct : "/");
 	}
 	else
 		chdir_r = chdir(info->argv[1]);
@@ -79,7 +77,8 @@ int cd_handlr(info_s *info)
 }
 
 /**
- * help_handlr - function that prints a message for a function that’s not implemented
+ * help_handlr - function that prints a message for a function
+ * that’s not implemented
  * @info: arguments
  * Return: 0
  */

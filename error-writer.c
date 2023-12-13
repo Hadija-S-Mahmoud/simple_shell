@@ -8,7 +8,7 @@ void puts_error(char *strng)
 {
 int a = 0;
 if (!strng)
-return:
+return;
 while (strng[a] != '\0')
 {
 putchar_error(strng[a]);
@@ -66,4 +66,4 @@ while (*strng)
 b += char_writer(*strng++, fdesc);
 }
 return (b);
-}
+

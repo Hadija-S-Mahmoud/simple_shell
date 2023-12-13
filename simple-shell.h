@@ -39,10 +39,10 @@ NULL, NULL, NULL, NULL, NULL,		\
 0, 0, NULL, 0, 0, 0				\
 }
 
-extern char **environment;
+extern char **envt;
 
 /**
-* ListNode - a singly linked list
+* struct ListNode - a singly linked list
 * @nom: field of numbers
 * @str: a string
 * @nxt: pointer to the next node
@@ -55,7 +55,7 @@ struct ListNode *nxt;
 } list_s;
 
 /**
-* InformationNode - function that has arguments for a pointer
+* struct InformationNode - function that has arguments for a pointer
 * @arg: argument
 * @argv: argument string
 * @argc: number of arguments
@@ -66,6 +66,7 @@ struct ListNode *nxt;
 * @program_name: the programs name
 * @flag: checks whether the line is conted or not
 * @environment: variables in environent
+* @alias: node for alias
 * @envt: copy of the environment
 * @history: history
 * @status: status
@@ -84,7 +85,7 @@ int flag;
 size_t err_nom;
 int err_code;
 int history_lines;
-char **s_buffer:
+char **s_buffer;
 int s_buffer_type;
 int desc;
 int status;
@@ -97,7 +98,7 @@ list_s *alias;
 } info_s;
 
 /**
-* builtin - function that has builtin strings
+* struct builtin - function that has builtin strings
 * @type: flag
 * @funct: function
 */
@@ -127,7 +128,7 @@ int print_environment(info_s *);
 int setenvt_checker(info_s *);
 int unsetenvt_checker(info_s *);
 int _unsetenvt((info_s *, char *);
-int _setenvt(info_s *, char *);
+int _setenvt(info_s *, char *, char *);
 int builtin_handler(info_s *);
 int hsh_loop(char **);
 int freeb(void **);
