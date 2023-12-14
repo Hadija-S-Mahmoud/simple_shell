@@ -14,7 +14,7 @@ bool executable(info_s *info, char *paths)
 	if (!paths || st(paths, &s))
 		return (0);
 
-	if (s.s_mode & S_REG)
+	if (s.s_mode & DT_REG)
 	{
 		return (true);
 	}
