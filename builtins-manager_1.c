@@ -57,8 +57,8 @@ int alias_printer(list_s *node)
 		for (b = node->str; b <= a; b++)
 			_putchar(*b);
 		_putchar('\'');
-		puts(a + 1);
-		puts("'\n");
+		c_puts(a + 1);
+		c_puts("'\n");
 		return (0);
 	}
 	return (1);

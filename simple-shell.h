@@ -187,7 +187,7 @@ void fr_list(list_s **);
 void chain_checker(info_s *info, char *buffr, size_t *h,
 size_t m, size_t lent);
 void puts_error(char *);
-void puts(char *);
+void c_puts(char *);
 void zero_setter(unsigned int *array, size_t sz);
 void null_setter(char *array, size_t sz);
 #endif

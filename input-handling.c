@@ -182,7 +182,7 @@ int get_line(info_s *info, char **pointr, size_t *lengt)
 */
 void sigint_handler(__attribt__((unused)) int sig_nom)
 {
-	puts("\n");
-	puts("$");
+	c_puts("\n");
+	c_puts("$");
 	_putchar(B_FLUSH);
 }

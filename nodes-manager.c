@@ -57,11 +57,11 @@ size_t list_printer(const list_s *g)
 size_t a = 0;
 while (g)
 {
-puts(base_changer(g->num, 10, 0));
+c_puts(base_changer(g->num, 10, 0));
 _putchar(':');
 _putchar(' ');
-puts(g->str ? g->str : "(nil)");
-puts("\n");
+c_puts(g->str ? g->str : "(nil)");
+c_puts("\n");
 g = g->nect;
 a++
 }

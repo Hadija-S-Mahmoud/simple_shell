@@ -13,7 +13,7 @@ while (result_reader != -1 && b_return != -2)
 {
 info_clearer(info);
 if (frm_term(info))
-puts("$");
+c_puts("$");
 putchar_error(B_FLUSH);
 result_reader = input_getter(info);
 if (result_reader != -1)

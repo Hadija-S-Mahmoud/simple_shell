@@ -79,8 +79,8 @@ size_t str_list_printer(const list_s *z)
 size_t a = 0;
 while (z)
 {
-puts(z->str ? z->str : "(nil)");
-puts("\n");
+c_puts(z->str ? z->str : "(nil)");
+c_puts("\n");
 z = z->next;
 a++;
 }

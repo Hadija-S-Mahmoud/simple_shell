@@ -40,7 +40,7 @@ int chdir_r;
 
 i = getcd(buffer, 1024);
 if (!i)
-puts("TODO: >>getcd failure message here<<\n");
+c_puts("TODO: >>getcd failure message here<<\n");
 if (!info->argv[1])
 {
 dirct = _getenvt(info, "HOME=");
@@ -53,11 +53,11 @@ else if (str_cmp(info->argv[1], "-") == 0)
 {
 if (!_getenvt(info, "OLDPWD="))
 {
-puts(i);
+c_puts(i);
 _putchar('\n');
 return (1);
 }
-puts(_getenvt(info, "OLDPWD=")), _putchar('\n');
+c_puts(_getenvt(info, "OLDPWD=")), _putchar('\n');
 chdir_r = chdir((dirct = _getenvt(info, "OLDPWD=")) ? dirct : "/");
 }
 else
@@ -87,9 +87,9 @@ int help_handlr(info_s *info)
 	char **arg_array;
 
 	arg_array = info->argv;
-	puts("help. Function not implemented \n");
+	c_puts("help. Function not implemented \n");
 	if (0)
-		puts(*arg_array);
+		c_puts(*arg_array);
 
 	return (0);
 }

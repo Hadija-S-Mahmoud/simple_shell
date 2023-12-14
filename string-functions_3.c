@@ -41,11 +41,11 @@ return (r);
 }
 
 /**
-* puts - funct printin input str
+* c_puts - funct printin input str
 * @str: string printed
 * Return: nothing
 */
-void puts(char *str)
+void c_puts(char *str)
 {
 int a = 0;
 if (!str)
