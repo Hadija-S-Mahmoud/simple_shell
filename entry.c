@@ -39,7 +39,6 @@ exit(info->err_code);
 }
 return (b_return);
 }
-
 /**
 * builtin_handler - function that finds the builtin commands
 * @info: parameter
@@ -68,7 +67,6 @@ break;
 }
 return (b_return);
 }
-
 /**
 * command_checker - function that looks for commands in the directory
 * @info: pointer
@@ -107,7 +105,6 @@ err_printer(info, "command not found\n");
 }
 }
 }
-
 /**
 * process_creator - function that forks a new process for running commands
 * @info: parameter pointer
@@ -127,7 +124,7 @@ if (copyid == 0)
 if (execve(info->paths, info->argv, get_environment(info)) == -1)
 {
 fr_information(info, 1);
-if (errno = ACCESSIBLE)
+if (errno == ACCESSIBLE)
 exit(126);
 exit(1);
 }

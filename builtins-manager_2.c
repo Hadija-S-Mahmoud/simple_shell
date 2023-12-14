@@ -35,45 +35,44 @@ int exit_handlr(info_s *info)
 
 int cd_handlr(info_s *info)
 {
-	char *i, *dirct, buffer[1024];
-	int chdir_r;
+char *i, *dirct, buffer[1024];
+int chdir_r;
 
-	i = getcd(buffer, 1024);
-	if (!i)
-	puts("TODO: >>getcd failure message here<<\n");
+i = getcd(buffer, 1024);
+if (!i)
+puts("TODO: >>getcd failure message here<<\n");
 if (!info->argv[1])
 {
 dirct = _getenvt(info, "HOME=");
 if (!dirct)
-	chdir_r = chdir((dirct = _getenvt(info, "PWD=")) ? dirct : "/");
-		else
-			chdir_r = chdir(dirct);
-	}
-	else if (str_cmp(info->argv[1], "-") == 0)
-	{
-		if (!_getenvt(info, "OLDPWD="))
-		{
-			puts(i);
-			_putchar('\n');
-			return (1);
-		}
+chdir_r = chdir((dirct = _getenvt(info, "PWD=")) ? dirct : "/");
+else
+chdir_r = chdir(dirct);
+}
+else if (str_cmp(info->argv[1], "-") == 0)
+{
+if (!_getenvt(info, "OLDPWD="))
+{
+puts(i);
+_putchar('\n');
+return (1);
+}
 puts(_getenvt(info, "OLDPWD=")), _putchar('\n');
 chdir_r = chdir((dirct = _getenvt(info, "OLDPWD=")) ? dirct : "/");
-	}
-	else
-		chdir_r = chdir(info->argv[1]);
-
-	if (chdir_r == -1)
-	{
-		err_printer(info, "cannot cd to ");
-		puts_error(info->argv[1]), putchar_error('\n');
-	}
-	else
-	{
-		_setenvt(info, "OLDPWD", _getenvt(info, "PWD="));
-		_setenvt(info, "PWD", getcd(buffer, 1024));
-	}
-	return (0);
+}
+else
+chdir_r = chdir(info->argv[1]);
+if (chdir_r == -1)
+{
+err_printer(info, "cannot cd to ");
+puts_error(info->argv[1]), putchar_error('\n');
+}
+else
+{
+_setenvt(info, "OLDPWD", _getenvt(info, "PWD="));
+_setenvt(info, "PWD", getcd(buffer, 1024));
+}
+return (0);
 }
 
 /**
