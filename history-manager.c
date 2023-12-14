@@ -13,14 +13,14 @@ char *history_reading(info_s *info)
 	dirct = _getenvt(info, "HOME=");
 	if (!dirct)
 		return (NULL);
-	buffr = malloc(sizeof(char) * (_strlen(dirct) + _strlen(HISTORY_NAME) + 2));
+buffr = malloc(sizeof(char) * (str_lent(dirct) + str_lent(HISTORY_NAME) + 2));
 	if (!buffr)
 		return (NULL);
 	buffr[0] = 0;
 	str_copy(buffr, dirct);
 	str_cat(buffr, "/");
 	str_cat(buffr, HISTORY_NAME);
- 	return (buffr);
+return (buffr);
 }
 
 /**

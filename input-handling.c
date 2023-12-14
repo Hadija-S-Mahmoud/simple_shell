@@ -9,15 +9,12 @@
 */
 ssize_t input_handler(info_s *info, char **buffr, size_t *lent)
 {
-
-	ssize_t a = 0;
-	size_t lent_l = 0;
-
-	{
-		free(*buffer);
-		*buffer = NULL;
-		signal(SINT, sigint_handler);
-
+ssize_t a = 0;
+size_t lent_l = 0;
+{
+free(*buffer);
+*buffer = NULL;
+signal(SINT, sigint_handler);
 ssize_t a = 0;
 size_t lent_l = 0;
 {
@@ -25,29 +22,28 @@ free(*buffr);
 *buffr = NULL;
 signal(SINT, sigint_handler);
 #if USE_GETLINE
-		a = getline(buffer, &lent_l, stdin);
+a = getline(buffer, &lent_l, stdin);
 #else
-		a = get_line(info, buffer, &lent_l);
+a = get_line(info, buffer, &lent_l);
 #endif
+if (a > 0)
+{
+if ((*buffer)[a - 1] == '\n')
+{
+(*buffer)[a - 1] = '\0';
+a--;
+}
+info->flag = 1;
+comment_handler(*buffer);
+hist_updater(info, *buffer, info->history_lines++);
 
-		if (a > 0)
-		{
-			if ((*buffer)[a - 1] == '\n')
-			{
-				(*buffer)[a - 1] = '\0';
-				a--;
-			}
-			info->flag = 1;
-			comment_handler(*buffer);
-			hist_updater(info, *buffer, info->history_lines++);
-			{
-				*lent = a;
-				info->s_buffer = buffer;
-			}
-		}
-	}
-	return (a);
-
+{
+*lent = a;
+info->s_buffer = buffer;
+}
+}
+}
+return (a);
 if (a > 0)
 {
 if ((*buffr)[a - 1] == '\n')
@@ -65,7 +61,6 @@ info->s_buffer = buffr;
 }
 }
 return (a);
-
 }
 /**
 * input_getter - function that gets a line minus

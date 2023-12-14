@@ -24,20 +24,19 @@ bool executable(info_s *info, char *paths)
 /**
  * chars_dups - function that duplicates characters
  * @pstr: the paths string
- * @strt: the index starter
- * @stp: the index stopper
+ * @start: the index starter
+ * @stop: the index stopper
  * Return: the pointer to the new buffer
  */
 char *chars_dups(char *pstr, int start, int stop)
-
-	static char buffer[1024];
-	int a = 0, j = 0;
-
-	for (j = 0, a = strt; a < stp; a++)
-		if (pstr[a] != ':')
-			buffer[j++] = pstr[a];
-	buffer[j] = 0;
-	return (buffer);
+static char buffer[1024];
+int a = 0;
+int j = 0;
+for (j = 0, a = start; a < stop; a++)
+if (pstr[a] != ':')
+buffer[j++] = pstr[a];
+buffer[j] = 0;
+return (buffer);
 }
 
 /**

@@ -119,12 +119,12 @@ pid_t copyid;
 copyid = fork();
 if (copyid == -1)
 {
-print-error("Error:");
+printerror("Error:");
 return;
 }
 if (copyid == 0)
 {
-if (execve(info->paths, info-> argv, get_environment(info)) == -1)
+if (execve(info->paths, info->argv, get_environment(info)) == -1)
 {
 fr_information(info, 1);
 if (errno = ACCESSIBLE)

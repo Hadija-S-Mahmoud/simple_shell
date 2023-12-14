@@ -55,10 +55,9 @@ int unsetenvt_checker(info_s *info)
 		puts_error("few argumments.\n");
 		return (1);
 	}
-	for (a = 1; a <= info->argc; a++)
-		 _unsetenvt((info, info->argv[a]);
-
-	return (0);
+for (a = 1; a <= info->argc; a++)
+_unsetenvt((info, info->argv[a]);
+return (0);
 }
 
 /**

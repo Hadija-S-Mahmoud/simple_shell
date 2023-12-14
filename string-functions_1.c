@@ -1,6 +1,6 @@
 #include "simple-shell.h"
 /**
-* str_lent - function that returns the length of the string
+*  str_lent - function that returns the length of the string
 * @c: string
 * Return: length
 */

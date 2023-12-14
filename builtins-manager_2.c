@@ -1,4 +1,4 @@
-#include "simpleshell.h"
+#include "simple-shell.h"
 
 /**
  * exit_handlr - function that exits the shell
@@ -41,8 +41,8 @@ int cd_handlr(info_s *info)
 	i = getcd(buffer, 1024);
 	if (!i)
 	puts("TODO: >>getcd failure message here<<\n");
-	if (!info->argv[1])
-	{
+if (!info->argv[1])
+{
 dirct = _getenvt(info, "HOME=");
 if (!dirct)
 	chdir_r = chdir((dirct = _getenvt(info, "PWD=")) ? dirct : "/");

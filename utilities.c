@@ -2,7 +2,7 @@
 /**
 * frm_term - function that checks if shell is interactive
 * @info: address
-* Return; 1 or 0
+* Return: 1 or 0
 */
 int frm_term(info_s *info)
 {
