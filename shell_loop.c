@@ -43,7 +43,7 @@ return (builtin_ret);
 
 /**
  * find_builtin - funct that finds a builtin cmnd
- * @info: param
+ * @info: param & return info struct.
  * Return: -1 when not found,0 if successful
  */
 int find_builtin(info_t *info)

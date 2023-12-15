@@ -86,7 +86,7 @@ int read_history(info_t *info)
 		if (buf[i] == '\n')
 		{
 			buf[i] = 0;
-			build_history_list(info, buf + last, linecount++ 0);
+			build_history_list(info, buf + last, linecount++);
 			last = i + 1;
 		}
 	if (last != i)
