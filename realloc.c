@@ -9,9 +9,9 @@
  */
 char *_memset(char *s, char b, unsigned int n)
 {
-unsigned int b;
-for (r = 0; r < n; r++)
-s[r] = b;
+unsigned int i;
+for (i = 0; i < n; i++)
+s[i] = b;
 return (s);
 }
 
@@ -50,7 +50,7 @@ if (!i)
 return (NULL);
 old_size = old_size < new_size ? old_size : new_size;
 while (old_size--)
-p[old_size] = ((char *)ptr)[old_size];
+i[old_size] = ((char *)ptr)[old_size];
 free(ptr);
 return (i);
 }
