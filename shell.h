@@ -149,13 +149,10 @@ char *_strchr(char *, char);
 
 /* tokenizer.c */
 char **strtow(char *, char *);
-<<<<<<< HEAD
 char **strtow2(char *, char );
-=======
 char **strtow2(char *, char);
 
 /* realloc.c */
->>>>>>> 80ec9d5b9c0f444d6edf6343207d734b37fe8cfb
 char *_memset(char *, char, unsigned int);
 void ffree(char **);
 void *_realloc(void *, unsigned int, unsigned int);
@@ -220,11 +217,8 @@ list_t *add_node_end(list_t **, const char *, int);
 size_t print_list_str(const list_t *);
 int delete_node_at_index(list_t **, unsigned int);
 void free_list(list_t **);
-<<<<<<< HEAD
-=======
 
 /* lists1.c */
->>>>>>> 80ec9d5b9c0f444d6edf6343207d734b37fe8cfb
 size_t list_len(const list_t *);
 char **list_to_strings(list_t *);
 size_t print_list(const list_t *);
