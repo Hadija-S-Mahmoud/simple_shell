@@ -149,7 +149,7 @@ char *_strchr(char *, char);
 
 /* tokenizer.c */
 char **strtow(char *, char *);
-char **strtow2(char *, char );
+char **strtow2(char *, char);
 char **strtow2(char *, char);
 
 /* realloc.c */

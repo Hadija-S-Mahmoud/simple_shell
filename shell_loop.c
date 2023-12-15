@@ -97,7 +97,8 @@ fork_cmd(info);
 }
 else
 {
-if ((interactive(info) || _getenv(info, "PATH=") || info->argv[0][0] == '/') && is_cmd(info, info->argv[0]))
+if ((interactive(info) || _getenv(info, "PATH=") ||
+info->argv[0][0] == '/') && is_cmd(info, info->argv[0]))
 fork_cmd(info);
 else if (*(info->arg) != '\n')
 {
@@ -106,20 +107,17 @@ print_error(info, "not found\n");
 }
 }
 }
-
 /**
  * fork_cmd - funct that forks a exec thread to run cmd
  * @info: param
  * Return: void
  */
-
 void fork_cmd(info_t *info)
 {
 pid_t child_pid;
 child_pid = fork();
 if (child_pid == -1)
 {
-/* TODO: PUT AN ERROR FUNCTION */
 perror("Error:");
 return;
 }
@@ -132,7 +130,6 @@ if (errno == EACCES)
 exit(126);
 exit(1);
 }
-/* TODO: PUT AN ERROR FUNCTION */
 }
 else
 {

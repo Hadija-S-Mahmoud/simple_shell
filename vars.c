@@ -1,7 +1,8 @@
 #include "shell.h"
 
 /**
- * is_chain - function that tests if the current char in the buf is a chain delimeter
+ * is_chain - function that tests if the current
+ * char in the buf is a chain delimeter
  * @info: parameter
  * @buf: char buffer
  * @p: the address of currnt pos in buf
@@ -34,7 +35,8 @@ return (1);
 }
 
 /**
- * check_chain - function checking if we should cont chaining based on the last stat
+ * check_chain - function checking if we should cont
+ * chaining based on the last stat
  * @info: param
  * @buf: char buf
  * @p: addrs currnt pos in buf
