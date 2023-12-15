@@ -47,7 +47,7 @@ typedef struct liststr
 	int num;
 	char *str;
 	struct liststr *next;
-} list
+} list_t;
 
 /**
  * struct passinfo - contains pseudo-arguements to pass into a function
@@ -87,7 +87,6 @@ typedef struct passinfo
 	char **environ;
 	int env_changed;
 	int status;
-
 	char **cmd_buf;	  /* pointer to cmd ; chain buffer, for memory mangement */
 	int cmd_buf_type; /* CMD_type ||, &&, ; */
 	int readfd;
@@ -135,7 +134,7 @@ char *_strncpy(char *, char *, int);
 char *_strncat(char *, char *, int);
 char *_strchr(char *, char);
 char **strtow(char *, char *);
-char **strtow2(char *, char *);
+char **strtow2(char *, char );
 char *_memset(char *, char, unsigned int);
 void ffree(char **);
 void *_realloc(void *, unsigned int, unsigned int);
@@ -178,7 +177,7 @@ list_t *add_node_end(list_t **, const char *, int);
 size_t print_list_str(const list_t *);
 int delete_node_at_index(list_t **, unsigned int);
 void free_list(list_t **);
-char_t list_len(const list_t *);
+size_t list_len(const list_t *);
 char **list_to_strings(list_t *);
 size_t print_list(const list_t *);
 list_t *node_starts_with(list_t *, char *, char);
